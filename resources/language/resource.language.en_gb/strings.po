@@ -1,0 +1,10 @@
+# Kodi Media Center language file
+# Addon Name: ODROID Idle Display Off
+# Addon id: service.odroid.idledisplayoff
+# Addon Provider: milaq
+msgid ""
+msgstr ""
+
+msgctxt "#30001"
+msgid "Delay after starting screensaver"
+msgstr ""
