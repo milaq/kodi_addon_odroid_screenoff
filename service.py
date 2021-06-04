@@ -7,7 +7,7 @@ import xbmcaddon
 addon = xbmcaddon.Addon()
 addonid = addon.getAddonInfo('id')
 
-displaystate = None
+displaystate = True
 
 
 def log(msg, level):
@@ -43,7 +43,6 @@ class IdleMonitor(xbmc.Monitor):
             amlogic_display_power(True)
 
 
-amlogic_display_power(True)
 monitor = IdleMonitor()
 while not monitor.abortRequested():
     if monitor.waitForAbort(1):
