@@ -16,6 +16,8 @@ def log(msg, level):
 
 def amlogic_display_power(state):
     global displaystate
+    if displaystate == state:
+        return
     if state:
         sysfs = '1'
         msg = 'on'
@@ -39,8 +41,7 @@ class IdleMonitor(xbmc.Monitor):
 
     def onScreensaverDeactivated(self):
         self.screensaver = False
-        if not displaystate:
-            amlogic_display_power(True)
+        amlogic_display_power(True)
 
 
 monitor = IdleMonitor()
@@ -51,4 +52,7 @@ while not monitor.abortRequested():
         idletime = time.time() - monitor.screensaver_activation_time
         if displaystate and idletime >= (int(addon.getSetting('delay')) * 60):
             log("Screensaver is running for %i seconds" % idletime, xbmc.LOGDEBUG)
-            amlogic_display_power(False)
+            if addon.getSetting('no_action_when_playing') == 'true' and xbmc.Player().isPlaying() and not xbmc.getCondVisibility("Player.Paused"):
+                log("Still playing media, not taking action", xbmc.LOGDEBUG)
+            else:
+                amlogic_display_power(False)

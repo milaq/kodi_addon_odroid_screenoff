@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <settings>
     <setting id="delay" type="slider" label="30001" default="20" range="0,60" option="int" />
+    <setting id="no_action_when_playing" type="bool" label="30002" default="false" />
 </settings>

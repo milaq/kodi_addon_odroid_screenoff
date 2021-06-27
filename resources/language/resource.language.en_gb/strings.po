@@ -8,3 +8,7 @@ msgstr ""
 msgctxt "#30001"
 msgid "Delay after starting screensaver"
 msgstr ""
+
+msgctxt "#30002"
+msgid "Don't turn screen off when playing media"
+msgstr ""
